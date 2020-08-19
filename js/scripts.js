@@ -30,6 +30,11 @@ function pigLatin (string) {
     } else {
       let firstVowelIndex = findFirstVowel(word)
       let firstConsonant = word.slice(0, firstVowelIndex);
+        // squeak
+        // eaksquay
+        if (firstConsonant.includes("q")) {
+          return word.slice(firstVowelIndex + 1).concat(firstConsonant + "uay");
+        };
       return word.slice(firstVowelIndex).concat(firstConsonant + "ay");
       // For single consonants starts
       // let firstConsonant = word.slice(0, 1);
@@ -65,5 +70,6 @@ $(document).ready(function(){
     //  Test 1
     console.log(pigLatin("hello world my name is joe steve"));
     console.log(findFirstVowel("Joseph"));
+    console.log(pigLatin("queen quote quitting square quiet qualms"));
   });
 });
