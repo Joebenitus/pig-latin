@@ -20,31 +20,24 @@
 // Expect(pigLatin("yellow yacht").toEqual("ellowyay achtyay")
 
 //Business Logic
-//  const vowels = /aeiou/gi;
+const vowels = /[aeiou]/i;
 
 
 function pigLatin (string) {
   const inputArray = string.toLowerCase().split(" ");
   let newArray = inputArray.map(function(word){
-    if (word[0] === "a" || word[0] === "e" || word[0] === "i" || word[0] === "o" || word[0] === "u") {
+    if (word[0].match(vowels)) {
       return word.concat("way");
     } else {
       let firstVowelIndex = findFirstVowel(word)
       if (firstVowelIndex === 0){
-        //yams
-        //amsyay
         return word.slice(1).concat("yay");
       }
       let firstConsonant = word.slice(0, firstVowelIndex);
-        // squeak
-        // eaksquay
-        if (firstConsonant.includes("q")) {
-          return word.slice(firstVowelIndex + 1).concat(firstConsonant + "uay");
-        };
+      if (firstConsonant.includes("q")) {
+        return word.slice(firstVowelIndex + 1).concat(firstConsonant + "uay");
+      };
       return word.slice(firstVowelIndex).concat(firstConsonant + "ay");
-      // For single consonants starts
-      // let firstConsonant = word.slice(0, 1);
-      // return word.slice(1).concat(firstConsonant + "ay");
     };
   }); 
   return newArray.join(" ");
@@ -54,7 +47,7 @@ function findFirstVowel (word) {
   let firstVowel;
   let lowerCaseWord = word.toLowerCase();
   for (let i = 0; i < lowerCaseWord.length; i++){
-    if (lowerCaseWord[i] === "a" || lowerCaseWord[i] === "e" || lowerCaseWord[i] === "i" || lowerCaseWord[i] === "o" || lowerCaseWord[i] === "u" || lowerCaseWord[i] === "y"){
+    if (lowerCaseWord[i].match(vowels) || lowerCaseWord[i] === "y"){
       firstVowel = i;
       break;
     }
@@ -62,19 +55,13 @@ function findFirstVowel (word) {
   return firstVowel;
 }
 
-//find and define index of first vowel
-//let firstConsonant = word.slice(0, firstVowel)
-//return word.slice(firstVowel).concat(firstConsonant + "ay")
-
-
-
-
 //User Interface Logic
 $(document).ready(function(){
   $("form#pigLatin").submit(function(event){
     event.preventDefault();
     const userInput = $("input#enterText").val();
 
-    $("#translate").append(pigLatin(userInput)).show();
+    $("#translate").show();
+    $(".result").text(pigLatin(userInput));
   });
 });
