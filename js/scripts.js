@@ -26,10 +26,25 @@
 
 // Test 4
 
+//Business Logic
 function pigLatin (string) {
-  if (string[0] === "a" ||
-  return 
-}
+  const inputArray = string.toLowerCase().split(" ");
+  let newArray = inputArray.map(function(word){
+    if (word[0] === "a" || word[0] === "e" || word[0] === "i" || word[0] === "o" || word[0] === "u") {
+      return word.concat("way");
+    } else {
+      return word;
+    };
+  }); 
+  return newArray.join(" ");
+};
 
-pigLatin("at enter i")).toEqual("atway enterway iway");
 
+
+//User Interface Logic
+$(document).ready(function(){
+  $("form#pigLatin").submit(function(event){
+    event.preventDefault();
+    console.log(pigLatin("at enter i cat"));
+  });
+});
