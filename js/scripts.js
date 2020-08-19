@@ -22,6 +22,8 @@
 //Business Logic
 //  const vowels = /aeiou/gi;
 
+const userInput = 
+
 function pigLatin (string) {
   const inputArray = string.toLowerCase().split(" ");
   let newArray = inputArray.map(function(word){
@@ -29,6 +31,11 @@ function pigLatin (string) {
       return word.concat("way");
     } else {
       let firstVowelIndex = findFirstVowel(word)
+      if (firstVowelIndex === 0){
+        //yams
+        //amsyay
+        return word.slice(1).concat("yay");
+      }
       let firstConsonant = word.slice(0, firstVowelIndex);
         // squeak
         // eaksquay
@@ -48,7 +55,7 @@ function findFirstVowel (word) {
   let firstVowel;
   let lowerCaseWord = word.toLowerCase();
   for (let i = 0; i < lowerCaseWord.length; i++){
-    if (lowerCaseWord[i] === "a" || lowerCaseWord[i] === "e" || lowerCaseWord[i] === "i" || lowerCaseWord[i] === "o" || lowerCaseWord[i] === "u"){
+    if (lowerCaseWord[i] === "a" || lowerCaseWord[i] === "e" || lowerCaseWord[i] === "i" || lowerCaseWord[i] === "o" || lowerCaseWord[i] === "u" || lowerCaseWord[i] === "y"){
       firstVowel = i;
       break;
     }
@@ -67,9 +74,12 @@ function findFirstVowel (word) {
 $(document).ready(function(){
   $("form#pigLatin").submit(function(event){
     event.preventDefault();
+
+    $("#translate").text(pigLatin())
     //  Test 1
     console.log(pigLatin("hello world my name is joe steve"));
     console.log(findFirstVowel("Joseph"));
     console.log(pigLatin("queen quote quitting square quiet qualms"));
+    console.log(pigLatin("yes your yams yield yucky yells"));
   });
 });
