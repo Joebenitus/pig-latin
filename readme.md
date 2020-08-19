@@ -8,26 +8,29 @@
 
 _This is a simple webpage project to practice using arrays and loops. Users enter a word or sentence into the form, which is then transformed into pig latin and printed to the screen._
 
-## Specs for Program Behaivors
-1. For words beginning with a vowel, add "way" to the end.
-Input:
-Output:
-2. For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
-Input:
-Output:
-3. If the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first!
-Input:
-Output:
-4. For words beginning with "y", treat "y" as a consonant.
-Input:
-Output:
+## Specifications for Pig Latin
+1. Behavior: For words beginning with a vowel, add "way" to the end.
+Input: "at enter i"
+Output: "atway enterway iway"
+
+2. Behavior: For words beginning with one or more consonants, move all of the first consecutive consonants to the end, and add "ay".
+Input: "pig latin"
+Output: "igpay  atinlay"
+
+3. Behavior: If the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first!
+Input: "quiet squeal"
+Output: "ietquay ealsquay"
+
+4. Behavior: For words beginning with "y", treat "y" as a consonant.
+Input: "yellow yacht"
+Output: "ellowyay achtyay"
 
 ## Setup/Installation Requirements
 
 * _open terminal_
 * _type "cd desktop", then press enter_
-* _type "git clone https://github.com/{username}/{repo}", then press enter_
-* _locate and open folder on desktop named "{name}"_
+* _type "git clone https://github.com/SolarDor/pig-latin", then press enter_
+* _locate and open folder on desktop named "pig-latin"_
 * _open the file named "index.html"_
 
 ## Known Bugs
