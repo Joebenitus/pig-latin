@@ -22,7 +22,6 @@
 //Business Logic
 //  const vowels = /aeiou/gi;
 
-const userInput = 
 
 function pigLatin (string) {
   const inputArray = string.toLowerCase().split(" ");
@@ -74,12 +73,8 @@ function findFirstVowel (word) {
 $(document).ready(function(){
   $("form#pigLatin").submit(function(event){
     event.preventDefault();
+    const userInput = $("input#enterText").val();
 
-    $("#translate").text(pigLatin())
-    //  Test 1
-    console.log(pigLatin("hello world my name is joe steve"));
-    console.log(findFirstVowel("Joseph"));
-    console.log(pigLatin("queen quote quitting square quiet qualms"));
-    console.log(pigLatin("yes your yams yield yucky yells"));
+    $("#translate").append(pigLatin(userInput)).show();
   });
 });
